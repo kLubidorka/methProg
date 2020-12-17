@@ -26,19 +26,19 @@ public:
     }
 
     static void meet(CatDog *one, Dog *two) {
-        std::cout << "Who are you?" << std::endl;
+        std::cout << "Who are you? Bark" << std::endl;
     }
 
     static void meet(Cat *one, CatDog *two) {
-        std::cout << "Who are you?" << std::endl;
+        std::cout << "Meow Who are you?" << std::endl;
     }
 
     static void meet(CatDog *one, Cat *two) {
-        std::cout << "Who are you?" << std::endl;
+        std::cout << "Who are you? Meow" << std::endl;
     }
 
     static void meet(CatDog *one, CatDog *two) {
-        std::cout << "Who are you?" << std::endl;
+        std::cout << "Who are you? No, who are you?" << std::endl;
     }
 
     static void meet(...) {

@@ -6,14 +6,15 @@
 
 int main() {
     Animal *cat = new Cat;
-    Animal *dog = new Dog;
     Animal *catdog = new CatDog;
 
-    //StaticAsymmetricDispatcher<Meeting, Animal, TypeList<Dog, Cat, CatDog>, Animal, TypeList<Cat>>::Go(catdog, cat);
+    // Who are you? Meow
+    // Meow Who are you?
+    StaticAsymmetricDispatcher<Meeting, Animal, TypeList<Dog, Cat, CatDog> >::Go(catdog, cat);
+    StaticAsymmetricDispatcher<Meeting, Animal, TypeList<Dog, Cat, CatDog> >::Go(cat, catdog);
 
-    StaticAsymmetricDispatcher<Meeting, Animal, TypeList<Dog, Cat, CatDog> >::Go(dog, cat);
-    StaticAsymmetricDispatcher<Meeting, Animal, TypeList<Dog, Cat, CatDog> >::Go(cat, dog);
-
-    StaticSymmetricDispatcher<Meeting, Animal, TypeList<Dog, Cat, CatDog> >::Go(dog, cat);
-    StaticSymmetricDispatcher<Meeting, Animal, TypeList<Dog, Cat, CatDog> >::Go(cat, dog);
+    // Who are you? Meow
+    // Who are you? Meow
+    StaticSymmetricDispatcher<Meeting, Animal, TypeList<Dog, Cat, CatDog> >::Go(catdog, cat);
+    StaticSymmetricDispatcher<Meeting, Animal, TypeList<Dog, Cat, CatDog> >::Go(cat, catdog);
 }
