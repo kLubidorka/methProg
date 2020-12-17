@@ -4,4 +4,4 @@ set(CMAKE_CXX_STANDARD 14)
 
 include_directories(${PROJECT_SOURCE_DIR}/lib)
 
-add_executable(TestRunner Demo/Demo.cpp)
+add_executable(DemoRunner demo/Demo.cpp)
