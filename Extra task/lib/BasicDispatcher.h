@@ -8,7 +8,6 @@
 struct HashIndex {
     size_t operator()(const std::pair<std::type_index, std::type_index> &pr) const {
         static std::hash<std::type_index> z;
-
         return z(pr.first) * 31 + z(pr.second);
     }
 };
