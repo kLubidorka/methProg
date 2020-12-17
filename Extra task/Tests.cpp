@@ -4,14 +4,13 @@
 #include "TestClasses.h"
 #include "TestMeetingExecutor.h"
 
-int main()
-{
-    Animal* cat1 = new Cat;
-    Animal* dog1 = new Dog;
-    Animal* catdog1 = new CatDog;
+int main() {
+    Animal *cat1 = new Cat;
+    Animal *dog1 = new Dog;
+    Animal *catdog1 = new CatDog;
 
-    StaticDispatcher<Meeting, Animal, TypeList< Dog, Cat, CatDog > >::Go(catdog1, cat1);
-    StaticDispatcher<Meeting, Animal, TypeList< Dog, Cat, CatDog > >::Go(dog1, cat1);
+    StaticDispatcher<Meeting, Animal, TypeList<Dog, Cat, CatDog> >::Go(catdog1, cat1);
+    StaticDispatcher<Meeting, Animal, TypeList<Dog, Cat, CatDog> >::Go(dog1, cat1);
 
 //    BasicDispatcher<Animal, Animal> bdAnim;
 //    bdAnim.add<Dog, Dog>(MeetDog);
