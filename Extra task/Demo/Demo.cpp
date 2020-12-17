@@ -2,7 +2,7 @@
 #include "StaticAsymmetricDispatcher.h"
 #include "StaticSymmetricDispatcher.h"
 #include "DemoClasses.h"
-#include "DemoMeetingExecutor.h"
+#include "DemoExecutor.h"
 
 int main() {
     Animal *cat = new Cat;
