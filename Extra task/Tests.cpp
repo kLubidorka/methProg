@@ -2,7 +2,7 @@
 #include "BasicDispatcher.h"
 #include "StaticDispatcher.h"
 #include "TestClasses.h"
-#include "MeetingExecutor.h"
+#include "TestMeetingExecutor.h"
 
 int main()
 {
