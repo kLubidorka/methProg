@@ -1,8 +1,8 @@
 #include <iostream>
 #include "StaticAsymmetricDispatcher.h"
 #include "StaticSymmetricDispatcher.h"
-#include "TestClasses.h"
-#include "TestMeetingExecutor.h"
+#include "DemoClasses.h"
+#include "DemoMeetingExecutor.h"
 
 int main() {
     Animal *cat = new Cat;
