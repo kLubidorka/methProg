@@ -1,5 +1,5 @@
-#ifndef SYMMETRICDISPATCHER_STATICDISPATCHER_H
-#define SYMMETRICDISPATCHER_STATICDISPATCHER_H
+#ifndef SYMMETRICDISPATCHER_STATICASYMMETRICDISPATCHER_H
+#define SYMMETRICDISPATCHER_STATICASYMMETRICDISPATCHER_H
 
 #include "TypeList.h"
 #include <typeinfo>
@@ -26,7 +26,7 @@ template<
         class BaseRhs = BaseLhs,
         class TypesRhs = TypesLhs,
         typename ResultType = void>
-class StaticDispatcher {
+class StaticAsymmetricDispatcher {
     typedef typename TypesLhs::Head Head;
     typedef typename TypesLhs::Tail Tail;
 public:
@@ -35,9 +35,9 @@ public:
     static ResultType Go(BaseLhs *lhs, BaseRhs *rhs) {
         if (typeid(Head) == typeid(*lhs)) {
             Head *p1 = dynamic_cast<Head *>(lhs);
-            return StaticDispatcher<Executor, BaseLhs, TypesLhs, BaseRhs, TypesRhs, ResultType>::DispatchRhs(p1, rhs);
+            return StaticAsymmetricDispatcher<Executor, BaseLhs, TypesLhs, BaseRhs, TypesRhs, ResultType>::DispatchRhs(p1, rhs);
         } else {
-            return StaticDispatcher<Executor, BaseLhs, Tail, BaseRhs, TypesRhs, ResultType>::Go(lhs, rhs);
+            return StaticAsymmetricDispatcher<Executor, BaseLhs, Tail, BaseRhs, TypesRhs, ResultType>::Go(lhs, rhs);
         }
     }
 
@@ -52,7 +52,7 @@ public:
             Head *p2 = dynamic_cast<Head *>(rhs);
             return Executor::meet(lhs, p2);
         } else {
-            return StaticDispatcher<Executor, SomeLhs, TypesLhs, BaseRhs, Tail, ResultType>::DispatchRhs(lhs, rhs);
+            return StaticAsymmetricDispatcher<Executor, SomeLhs, TypesLhs, BaseRhs, Tail, ResultType>::DispatchRhs(lhs, rhs);
         }
     }
 };
@@ -64,7 +64,7 @@ template<
         class BaseRhs,
         class TypesRhs,
         typename ResultType>
-class StaticDispatcher<Executor, BaseLhs, Nulltype, BaseRhs, TypesRhs, ResultType> {
+class StaticAsymmetricDispatcher<Executor, BaseLhs, Nulltype, BaseRhs, TypesRhs, ResultType> {
 public:
     static ResultType Go(BaseLhs *lhs, BaseRhs *rhs) {
         return ResultType();
@@ -83,7 +83,7 @@ template<
         class TypesLhs,
         class BaseRhs,
         typename ResultType>
-class StaticDispatcher<Executor, BaseLhs, TypesLhs, BaseRhs, Nulltype, ResultType> {
+class StaticAsymmetricDispatcher<Executor, BaseLhs, TypesLhs, BaseRhs, Nulltype, ResultType> {
     typedef typename TypesLhs::Head Head;
     typedef typename TypesLhs::Tail Tail;
 public:
@@ -97,4 +97,4 @@ public:
     }
 };
 
-#endif //SYMMETRICDISPATCHER_STATICDISPATCHER_H
+#endif //SYMMETRICDISPATCHER_STATICASYMMETRICDISPATCHER_H
