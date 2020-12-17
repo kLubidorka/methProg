@@ -4,4 +4,4 @@ set(CMAKE_CXX_STANDARD 14)
 
 include_directories(${PROJECT_SOURCE_DIR}/lib)
 
-add_executable(TestRunner Tests.cpp lib/StaticSymmetricDispatcher.h)
+add_executable(TestRunner Tests.cpp)
