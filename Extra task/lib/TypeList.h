@@ -25,5 +25,23 @@ struct TypeList<H> {
     using Tail = EmptyTypeList;
 };
 
+template <typename U, typename ...T>
+struct IndexOf
+{
+    static const size_t value = 1;
+};
 
+//////////////////////////////// IndexOf ////////////////////////////////
+
+template <typename ...K, typename U>
+struct IndexOf<U, TypeList<K...>>
+{
+    static const size_t value = 1 + IndexOf<U, typename TypeList<K...>::Tail>::value;
+};
+
+template <typename T, typename ...K>
+struct IndexOf<TypeList<T, K...>, T>
+{
+    static const size_t value = 0;
+};
 #endif //SYMMETRICDISPATCHER_TYPELIST_H

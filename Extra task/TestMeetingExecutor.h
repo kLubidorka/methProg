@@ -14,7 +14,7 @@ public:
     }
 
     static void meet(Cat *one, Dog *two) {
-        std::cout << "Bark Meow" << std::endl;
+        std::cout << "Meow Bark" << std::endl;
     }
 
     static void meet(Cat *one, Cat *two) {
